@@ -3,6 +3,7 @@ layout: post
 title:  "mysql workbench 사용법"
 date:  2022-01-09 22:00:33
 categories: springboot
+description: "mysql workbench 사용법"
 ---
 
 
