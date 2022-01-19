@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fx1(){
+            var f = window.document.checkform;
+            var tt = "지금은 ";
+
+            for (var i = 1; i< 6; i++)
+            {
+                if (eval("f.count"+ i +".checked"))
+                {
+                    tt += i + "번 체크박스 ";
+                }
+            }
+
+            tt += "가 선택되었습니다";
+
+            alert(tt);
+        }
+    </script>
+
+    <form name="checkform">
+        <input type = "checkbox" name = "count1" value = "1" /> count 1 <br/>
+        <input type = "checkbox" name = "count2" value = "2" /> count 2<br/>
+        <input type = "checkbox" name = "count3" value = "3" /> count 3<br/>
+        <input type = "checkbox" name = "count4" value = "4" /> count 4<br/>
+        <input type = "checkbox" name = "count5" value = "5" /> count 5
+        <br/>
+        <br/>
+        <input type = "button" value = "confirm" onclick ="fx1()"/>
+    </form>
+</body>
+</html>

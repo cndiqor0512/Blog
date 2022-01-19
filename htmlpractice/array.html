@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        function fx1(){
+            var f = window.document.checkform;
+            var my_sum = 0;
+            var a = f.count.length;
+            var tt = "총 값의 합은 ";
+            
+            for (var i = 0; i< a; i++)
+            {
+                if (f.count[i].checked)
+                {
+                    my_sum += parseInt(f.count[i].value);
+                }
+            }
+
+            tt +=  my_sum + "입니다";
+
+            alert(tt);
+        }
+    </script>
+
+    <form name="checkform">
+        <input type = "checkbox" name = "count" value = "1" /> count 1 <br/>
+        <input type = "checkbox" name = "count" value = "2" /> count 2<br/>
+        <input type = "checkbox" name = "count" value = "3" /> count 3<br/>
+        <input type = "checkbox" name = "count" value = "4" /> count 4<br/>
+        <input type = "checkbox" name = "count" value = "5" /> count 5
+        <br/>
+        <br/>
+        <input type = "button" value = "confirm" onclick ="fx1()"/>
+    </form>
+</body>
+</html>

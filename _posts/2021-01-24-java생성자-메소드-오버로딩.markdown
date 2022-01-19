@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "자바 생성자, 메소드 오버로딩"
+date:  2021-01-23 09:12:22
+categories: java
+---
+
+생성자: 객체가 호출될 때 생성되는 것. 클래스 내에 아무런 생성자가 없다면 컴파일러가 자동으로 기본(디폴트) 생성자를 생성해줌.
+~~~
+클래스() {}
+~~~
+오버로딩:매개변수가 다른 생성자를 여러개 구현하는 것(매개변수의 수나 타입 다르면 여러개 생성 가능)
+this: 자신의 메모리를 가리킴, 생성자에서 다른 생성자를 호출 가능하게 함
+코드 예시:
+~~~java
+public class Car {
+    public String name;
+    public int wheel;
+    public double fuel;
+    //public Car(){}
+
+    public Car(String name, int wheel, double fuel){
+        this.name = name;
+        this.wheel = wheel;
+        this.fuel = fuel;
+    }
+    public String getDetails(){
+        return ("차종: "+name+" 바퀴 수: "+wheel+" 연비: "+fuel+"Km/L");
+    }
+
+}
+~~~
+
+~~~java
+public class CarPrint {
+
+        public static void main(String args[]){
+            Car car = new Car("아반떼", 4,8.3 );
+            System.out.print(car.getDetails());
+        }
+
+}
+~~~
+
+결과 화면:
+<img src="https://cndiqor0512.github.io/img/오버로딩결과.PNG">

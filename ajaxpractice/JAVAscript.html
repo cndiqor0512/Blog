@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <title>Ajax Test</title>
+        <script src="/js/jquery-3.3.1.min.js" type="test/javascript"></script>
+        <script>
+            $(function() {
+                $('#AjaxStart').click(function() {
+                    var testStr = '{'
+                                  +'"id":"'+ $("#id").val()+'"'
+                                  +',"name":"'+$("#name").val()+'""'
+                                  +'}';
+                    var $ajax = jQuery.ajax({
+                        url: '/chat_01',
+                        type: 'POST',
+                        contentType : 'application/json; charset=UTF-8',
+                        data:JSON.stringify(test),
+                        dataType:'json'
+                    });
+
+                    $ajax.done(success);
+                    $ajax.fail(failed);
+                    function success(a,b,c){
+                        alert("success");
+                    }
+                    function failed(a,b,c){
+                        alert("failed");
+                    }
+                });
+            });
+        </script>
+    </head>
+    <body>
+        <input type ="text" id ="id">
+        <input type ="text" id ="name">
+        <button id="AjaxStart">Ajax Start111</button>
+    </body>
+</html>

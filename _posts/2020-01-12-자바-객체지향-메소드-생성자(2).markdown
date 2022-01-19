@@ -1,0 +1,143 @@
+---
+layout: post
+title:  "자바 객체지향, 메소드, 생성자(2)"
+date:   2020-01-12 10:22:30
+categories: java
+---
+
+자바 객체지향, 메소드, 생성자(2)
+
+
+
+Animal이라는 클래스는 다음과 같이 만들 수 있다.
+
+    public class Animal{}
+
+위의 형태는 가장 단순한 형태의 클래스이다 단지 클래스의 선언만 있고 내용이 없는, 껍데기인 셈이된다. 그런데 이런 껍데기가 할 수 있는 기능중에서는 아주 중요한 기능이 있다. 과연 무엇일까? 그것은 바로
+
+**“객체(Object)를 만드는 기능이다.”**
+
+객체는 다음과 같이 만들 수 있다.
+
+    Animal cat = new Animal();
+
+위는 cat이라는 Animal의 인스턴스(instance)를 만든 것이다.  
+즉, Animal의 객체를 만든 것이다.
+
+여기서 new 는 객체를 만들 때 사용하는 키워드이다.
+
+## 클래스 정리
+
+과자가 있고, 과자를 만들 때 사용하는 과자틀이 있다.
+
+이때  **과자틀은 클래스, 과자는 객체**가 되는 것이다.
+
+이는 즉, Animal에 cat이라는 한개의 객체만이 존재하는게 아닌,
+
+    public class Animal{Animal cat = new Animal;  
+	    Animal horse = new Animal;  
+	    Animal tiger = new Animal;  
+                .  
+                .  
+                .  
+    } 
+
+과 같이 무수히 많은 객체를 만들 수 있다는 것이다.
+
+Animal이라는 껍데기 클래스에서 우리는 조금더 발전을 시켜볼 것이다.
+
+그것은 바로  **“객체변수”**를 사용해, 동물들의 이름을 지어주는 것.
+
+먼저, 클래스 안에 변수를 하나 선언한다.
+
+    public class Animal{
+	    String name;  
+    }
+
+Animal클래스 안에 name이라는 변수를 선언했다. 이렇게  **클래스 안에서 선언된 변수를 “객체변수”**라고 부른다.
+
+객체 변수 또한 변수이니, 그 변수에 값을 대입하는 것도 충분히 가능할 것이다. 값을 대입하기 전에, 한번 위 코드에서 객체변수 name의 값은 현재 어떤 값을 가지고 있을지 확인해 보자.
+
+**이때, 객체변수에 접근 하기 위해서는 도트 연산자(.)를 사용한다.**
+
+    public class Animal{  
+	    String name;
+	    //객체변수 선언  
+		    public static void main(String[] args){  
+		       Animal cat = new Animal;//객체 생성  
+		       System.out.println(cat.name);//객체.객체변수 
+		       }  
+    }
+
+결과:
+
+    null
+
+현재 객체변수 name에 아무런 값도 대입하지 않았기 때문에, 객체변수 name의 값은 null인 것이다.
+
+자 그럼 그다음으로는 객체변수에 값을 직접 대입해 보자. 객체변수에 값을 대입하는 방법으로는 여러가지 방법이 존재하나, 가장 보편적인 방법으로는 메소드를 이용하는 것이다.
+
+**[여기서 메소드란, 클래스 내에서 구현된 함수이다. 보통 함수라고 얘기하지 않고, 메소드라고 얘기한다.**
+
+**클래스:**
+
+**(1. 객체**
+
+**(2. 객체변수**
+
+**(3. 메소드**
+
+**]**
+
+이제 메소드를 이용해 name이라는 객체변수에 값을 대입해보자.
+
+먼저 아래와 같이 setName 메소드를 생성한다.
+
+    public class Animal {       
+	    String name;        
+		    public void setName(String name) {           
+			    this.name = name;       
+    }        
+		    public static void main(String[] args) {  
+			    Animal cat = new Animal();        
+			    System.out.println(cat.name);       
+		    }   
+    }
+
+setName의 형태
+
+입력:String name
+
+출력:void(리턴값 x)
+
+setName의 내부에는
+
+    this.name = name; 
+
+과 같은 문장이 있다. 이 문장은, 객체변수 name에 입력받은 String name값을 대입한다는 뜻이다.
+
+여기서 setName 메소드 내부에 사용된  `this`는 Animal 클래스에 의해서 생성된 객체를 지칭한다.
+
+예를 들어서 Animal dog = new Animal;과 같이 dog이라는 객체를 만들었고, dog.setName("boby");와 같이 메소드를 호출했다면  
+`this.name = name;`은 `dog.name = name;`과 같다고 할 수 있다.
+
+객체변수에 메소드를 이용해 값을 대입하는 방법은 아래와 같다.
+
+    public class Animal {       
+	    String name;        
+		    public void setName(String name) {           
+			    this.name = name;    //객체변수 name을 입력받은 String name값으로 대입      
+    }        
+		    public static void main(String[] args) {  
+			    Animal cat = new Animal();    //객체 생성     
+			    cat.setName("boby");    //메소드 호출  
+			    System.out.println(cat.name);    //객체변수 name값 출력  
+	    }   
+    }
+
+위 코드에서 main함수 두번째 줄을 보면, cat.setName(“boby”);라는 문장이 있는데, 이는 메소드를 호출하는 역할을 하는 문장이다. 이 문장을 봤을 때, cat.setName은 객체.메소드의 형태를 가지고 있다. 이처럼
+
+**“객체.변수 와 같이 도트연산자(.)로 접근할 수 있었던 것과 마찬가지로 객체가 메소드를 호출하기 위해서는 객체.메소드 로 호출할 수 있다.”**
+
+
+참고:[https://wikidocs.net/218](https://wikidocs.net/218)

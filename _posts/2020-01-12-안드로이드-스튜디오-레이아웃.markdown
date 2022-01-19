@@ -1,0 +1,78 @@
+---
+layout: post
+title:  "안드로이드 스튜디오 레이아웃"
+date:   2020-01-12 10:08:47
+categories: android
+---
+
+-안드로이드 스튜디오 레이아웃 설명
+
+
+## android layout xml
+
+xml-인터넷 웹페이지를 만드는 HTML을 획기적으로 개선하여 만든 언어이다. 홈페이지 구축기능, 검색기능 등이 향상되었고, 웹 페이지의 추가와 작성이 편리해졌다. 안드로이드 스튜디오내의 파일들은 자바파일과 xml파일 두가지의 파일로 나뉘어진다.
+
+안드로이드 레이아웃 종류
+
+가장 보편적으로 쓰이는 5가지
+
+1.  LinearLayout
+2.  RelativeLayout
+3.  FrameLayout
+4.  TableLayout
+5.  ListView와 GridView
+
+## LinearLayout
+
+-   가장 보편적으로 사용되는 레이아웃이다.
+-   view위젯을 설치하는데 딱히 어려움이 없고, 사용방법이 비교적 간편하다
+
+사용법:
+
+<LinearLayout>과 </LinearLayout>사이에 view위젯들을 넣어주기만 하면 된다.
+
+android:orientation을 사용해 방향을 지정한다.
+
+## RelativeLayout
+
+-   LinearLayout과 함께 가장 보편적으로 사용되는 레이아웃이다.
+-   LinearLayout로 UI를 만들때의 단점을 없앤 레이아웃이다.
+-   현재는 너무 다양한 안드로이드 기종이 나와서 사이즈가 모두 제각각이다. 어느 한 기종을 대상으로 만들지 않는 이상, 모든 기종에 맞는 UI를 만들어야 한다. 그러나 RelativeLayout을 사용하면 이러한 문제점이 모두 사라진다. => 왜냐하면, RelativeLayout에서는 위치를 각각의 버튼, 텍스트 등 각 요소에서부터 상대적인 거리를 따져서 위치를 지정하기 때문이다.(비교적으로 자유로워진 UI설정)
+
+## FrameLayout
+
+-   주 목적이 위 레이아웃과는 다르다.->화면에 표시될 뷰들을 바꿔가면서 사용하기 위함이 목적
+-   사용법은 RelativeLayout과 LinearLayout과 동일
+
+=> <FrameLayout>과 </FrameLayout>사이에 뷰 위젯 선언
+
+-   위치설정은 FrameLayout의 위와 옆(왼쪽)을 기준으로 정렬한다.
+
+## TableLayout
+
+-   표 형태의 레이아웃을 작성할 때 사용하는 레이아웃이다.​
+-   일반적으로 TableLayout은열과 행으로 구분되어 있다.
+-   TableLayout이 다른 레이아웃과 다른 특징은, 하나의 뷰가 셀(cell)이 된다는 것이다.
+
+사용법::
+
+TableLayout밑에 TableRow를 선언하고 그 밑에 뷰를 선언해 행을 만들어 준다.
+
+## GridView
+
+-   그리드 뷰( GridView ) 는 격자 모양으로 아이템을 배치할 수 레이아웃이다.
+-   주로 이미지를 테이블 형태로 나열하는데 쓰인다.
+
+## ListView
+
+-   리스트뷰는 사용자가 정의한 데이터를 아이템 단위로 구성하여 화면에 목록형식으로 출력하는 레이아웃이다.
+-   ListView의 예를 들자면, 안드로이드 시스템에서의 연락처나, 환경설정등이 대표적이다.
+
+## Button
+
+-   안드로이드 스튜디오에서 가장 기본적으로 쓰이고 가장 많이 쓰인다.
+-   위치설정은 Design으로도 할 수 있지만, Text환경으로 하는 경우, 레이아웃의 종류에 따라서 설정위치가 조금씩 달라진다.
+
+## EditText
+-   TextView가 단순히 텍스트를 출력하는 기능만을 가진대 반해서, EditText는 사용자가 직접 텍스트를 입력할수 있게 한다.
+-   TextView와 사용법에는 별반 차이점이 없다, 개발자는 단지 입력된 텍스트를 얻어오거나, EditText로 출력할 텍스트를 출력만 해주면 된다.

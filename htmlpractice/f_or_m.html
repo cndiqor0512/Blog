@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        var fx1 = function(){
+            var f = document.checkform;
+            if(f.my_radio.value == "m")
+            {
+                alert(" 당신은 남성을 선택하였습니다. " );
+            }
+            else if (f.my_radio.value == "f")
+            {
+                alert(" 당신은 여성을 선택하였습니다. " );
+            }
+            else
+            {
+                alert("선택하세요" );
+            }
+        }
+    </script>
+
+    <form name="checkform">
+        <input type = "radio" name ="my_radio" value ="m" checked /> 남성
+        <input type = "radio" name ="my_radio" value ="f" /> 여성
+        <br/>
+        <br/>
+        <input type="button" name="my_button" value = "선택" onclick = "fx1()" /> 
+    </form>
+</body>
+</html>

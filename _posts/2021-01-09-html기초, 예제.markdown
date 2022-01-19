@@ -1,0 +1,38 @@
+---
+layout: post
+title:  "html 예제, 기초"
+date:  2021-01-09 06:00:09
+categories: html
+---
+***html 기초:[https://cndiqor0512.github.io/htmlpractice/index.html](https://cndiqor0512.github.io/htmlpractice/index.html)***
+~~~ 
+<h1> <h2> : 글씨 크게 (h1>h2)
+~~~ 
+
+ ~~~
+ <ol> <li> <ul> : 태그의 중첩으로 리스트를 나타냄
+ ~~~
+ 의미론적 웹: 의미가 잘 드러나는 웹
+~~~
+<nav> 해당 부분이 네비게이션임을 장치에 구별시켜줌 
+~~~
+~~~
+<article> 본문의 내용임을 구별시켜 줌 
+~~~
+~~~
+<header> 헤더(간판)의 역할이란 의미를 부여해줌
+~~~
+
+***javascript html 예제:***
+1. [alert](https://cndiqor0512.github.io/htmlpractice/alert.html)
+2. [switch](https://cndiqor0512.github.io/htmlpractice/switch.html)
+3. [for](https://cndiqor0512.github.io/htmlpractice/for.html)
+4. [eval](https://cndiqor0512.github.io/htmlpractice/eval.html)
+5. [parseInt](https://cndiqor0512.github.io/htmlpractice/parseInt.html)
+6. [array](https://cndiqor0512.github.io/htmlpractice/array.html)
+7. [7](https://cndiqor0512.github.io/htmlpractice/optionselect.html)
+8. [8](https://cndiqor0512.github.io/htmlpractice/selectedoption.html)
+9. [9](https://cndiqor0512.github.io/htmlpractice/9.html)
+10. [10](https://cndiqor0512.github.io/htmlpractice/10.html)
+11. [남자or여자](https://cndiqor0512.github.io/htmlpractice/f_or_m.html)
+

@@ -1,0 +1,46 @@
+---
+layout: post
+title:  "자바 형변환"
+date:   2020-01-12 09:43:22
+categories: java
+---
+자바 형변환
+
+
+
+-   String->Int:자바Integer클래스의 parseInt함수와 valueOf 함수로 변환 시켜줄 수 있다.
+-   예:
+
+<img src="https://miro.medium.com/max/696/1*QPBONO8_gz-Oha60byGmdw.png" width="900px" height="600px" title="px(픽셀) 크기 설정" alt="이미지1"><br/>
+
+String->Double, Float:자바 Long, Double, Float 클래스의 parseLong함수와 valueOf 함수로 변환 시켜줄 수 있다
+
+-   예:
+
+<img src="https://miro.medium.com/max/702/1*sVaeCbs3ezXFng29HfOVUg.png" width="900px" height="600px" title="px(픽셀) 크기 설정" alt="이미지1"><br/>
+
+-   String->Long,short:자바 Long, Short 클래스의 parseLong함수와 parseShort 함수로 변환 시켜줄 수 있다.
+-   예:
+
+<img src="https://miro.medium.com/max/703/1*bnxGteI1ER8vmGU9JZmb0A.png" width="900px" height="600px" title="px(픽셀) 크기 설정" alt="이미지1"><br/>
+
+## 숫자->문자
+
+-   Int->String:자바 String클래스의 valueOf, toString 함수로 변환 시켜줄 수 있다.
+-   예:
+
+<img src="https://miro.medium.com/max/703/1*rs6ulVHWuNTt_JZF6vVB3A.png" width="900px" height="600px" title="px(픽셀) 크기 설정" alt="이미지1"><br/>
+
+-   Double, Float->String:valueOf, toString함수로 치환 시킬 수 있다.
+
+## 실수<->정수
+
+-   실수->정수
+-   예:
+
+<img src="https://miro.medium.com/max/706/1*9jDHBlgHq7esk7bFuurLZw.png" width="900px" height="600px" title="px(픽셀) 크기 설정" alt="이미지1"><br/>
+
+-   정수->실수
+-   예:
+
+<img src="https://miro.medium.com/max/706/1*9jDHBlgHq7esk7bFuurLZw.png" width="900px" height="600px" title="px(픽셀) 크기 설정" alt="이미지1"><br/>
