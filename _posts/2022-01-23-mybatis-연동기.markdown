@@ -10,7 +10,7 @@ categories: springboot
   
 
 Intellij에서 생성한 스프링 부트 프로젝트의 application.properties파일을 열면 다음과 같은 코드가 작성되어 있을 것이다.
-
+{% hightlight java %}
     application.properties
     
     
@@ -23,17 +23,23 @@ Intellij에서 생성한 스프링 부트 프로젝트의 application.properties
     spring.datasource.password=
     
     spring.datasource.mybatis=
-
-  
-
+ {% endhighlight %}
+ 
+위의 파일을 수정하기에 앞서
 build.gradle에서 다음 의존성을 추가해준다.
-
+{% hightlight java %}
     runtimeOnly 'mysql:mysql-connector-java'
+{% endhighlight %}
 
-  
+build.gradle
+
+<img src="https://cndiqor0512.github.io/img/mybatis연동.PNG">
+
+
+'Ctrl + shift + O'로 위 gradle change를 불러온다.
 
 그 후 application.properties파일을 다음과 같이 수정해준다.
-
+{% hightlight java %}
     application.properties
     
 
@@ -44,7 +50,7 @@ build.gradle에서 다음 의존성을 추가해준다.
     spring.datasource.username=your_username
     
     spring.datasource.password=your_password
-
+{% endhighlight %}
   
 
 url에서는 mysql을 schema 이름으로, username은 mysql의 유저 이름, password는 비밀번호를 지정해준다.
