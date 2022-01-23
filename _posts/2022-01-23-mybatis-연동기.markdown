@@ -1,18 +1,29 @@
----
-layout: post
-title:  "mybatis 연동기"
-date:  2022-01-23 21:01:03
-categories: springboot
+
 ---
 
- mybatis와 Intellij를 연동해보자.
+layout: post
+
+title: "mybatis 연동기"
+
+date: 2022-01-23 21:01:03
+
+categories: springboot
+
+---
+
+  
+
+mybatis와 Intellij를 연동해보자.
+
+  
 
   
 
 Intellij에서 생성한 스프링 부트 프로젝트의 application.properties파일을 열면 다음과 같은 코드가 작성되어 있을 것이다.
 
+  
+
     application.properties
-    
     
     spring.datasource.driver-class-name=com.mysql.jdbc.Driver
     
@@ -24,24 +35,38 @@ Intellij에서 생성한 스프링 부트 프로젝트의 application.properties
     
     spring.datasource.mybatis=
 
- 
+  
+
 위의 파일을 수정하기에 앞서
+
 build.gradle에서 다음 의존성을 추가해준다.
+
+  
 
     runtimeOnly 'mysql:mysql-connector-java'
 
+  
+  
 
 build.gradle
 
-<img src="https://cndiqor0512.github.io/img/mybatis연동.PNG">
+  
 
+<img  src="https://cndiqor0512.github.io/img/mybatis연동.PNG">
+
+  
+  
 
 'Ctrl + shift + O'로 위 gradle change를 불러온다.
 
+  
+
 그 후 application.properties파일을 다음과 같이 수정해준다.
 
-ㅊ
-    
+  
+  
+
+  
 
     spring.datasource.driver-class-name=com.mysql.cj.jdbc.Driver
     
@@ -50,31 +75,48 @@ build.gradle
     spring.datasource.username=your_username
     
     spring.datasource.password=your_password
+    
+      
 
   
 
 url에서는 mysql을 schema 이름으로(필수 x), username은 mysql의 유저 이름, password는 비밀번호를 지정해준다.
 
+  
+  
 
 해당 과정을 적용한 결과는 다음과 같다.
 
-<img src="https://cndiqor0512.github.io/img/Intellij mysql 연동.png">
+  
+
+<img  src="https://cndiqor0512.github.io/img/Intellij mysql 연동.png">
+
+  
 
 만약 위 과정에서 비밀번호를 잘못 입력하면
-<img src="https://cndiqor0512.github.io/img/error2.PNG">
-    Access denied for user 'root'@'localhost
-위의 에러가 뜨며 실행이 거부된다는 메세지가 올라온다. 
 
-마찬가지로 잘못된 유저네임(roo1)을 입력하게 되면, 
-<img src="https://cndiqor0512.github.io/img/error1.PNG">
+<img  src="https://cndiqor0512.github.io/img/error2.PNG">
+
+    Access denied for user 'root'@'localhost
+
+위의 에러가 뜨며 실행이 거부된다는 메세지가 올라온다.
+
+  
+
+마찬가지로 잘못된 유저네임(roo1)을 입력하게 되면,
+
+<img  src="https://cndiqor0512.github.io/img/error1.PNG">
+
     Access denied for user 'roo1'@'localhost
+
 라는 메세지와 엑세스가 거부된다.
 
+  
+
 또한 schema명 또한 mysql 또는 잘못된 명칭(mqwersdf)을 입력하면
-<img src="https://cndiqor0512.github.io/img/error3.PNG">
+
+<img  src="https://cndiqor0512.github.io/img/error3.PNG">
+
     Unknown database 'mqwersdf'
+
 라는 메세지와 에러가 뜨게 된다.
-
-
-
-
