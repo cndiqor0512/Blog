@@ -33,3 +33,13 @@ categories: java
 -   문자형=>수가 아닌 문자를 저장한다.
 -   정수형=>정수타입의 자료값을 저장한다.
 -   실수형=>실수타입의 자료값을 저장한다.
+
+
+입력받기 - Scanner:
+import java.util.*; - 자바의 Scanner 클래스를 사용하기 위해 추가.
+
+Scanner의 객체를 생성한다.
+Scanner sc = new Scanner(System.in);
+nextLine();
+
+사용자가 입력을 할 수 있게 된다.
