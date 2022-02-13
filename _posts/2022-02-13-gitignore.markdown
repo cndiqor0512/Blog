@@ -1,13 +1,8 @@
 ---
-
 layout: post
-
 title: "git ignore 사용법"
-
 date: 2022-02-13 17:28:15
-
 categories: programming
-
 ---
 
 gitignore란?
