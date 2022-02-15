@@ -5,7 +5,7 @@ date:  2022-02-15 21:51:36
 categories: springboot
 ---
 
-<img src="https://cndiqor0512.github.io/blog/img/Springboot각역할.png">
+<img src="https://cndiqor0512.github.io/img/Springboot각역할.png">
 
  위 그림은 springboot가 작동하는 과정을 나타낸 것이다.
 
