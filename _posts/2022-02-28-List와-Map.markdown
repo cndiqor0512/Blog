@@ -59,7 +59,7 @@ List에서 항목 제거하기:
 리스트에서 첫번째 항목을 삭제한 후 삭제한 항목을 출력한다.
 
 ## 맵
-맵은 Key와 Value라는 것을 한 쌍으로 갖는 자료형이다.
+맵은 Key와 Value라는 것을 한 쌍으로 갖는 자료형이다.(Key는 중복 안됨)
 예제:
     import java.util.HashMap; 
       
@@ -71,4 +71,6 @@ List에서 항목 제거하기:
      }
 
 > ※ HashMap을 사용하기 위해서는 `import java.util.HashMap;`을  작성하여 HashMap을 먼저 import해야 한다.
+
+
 
