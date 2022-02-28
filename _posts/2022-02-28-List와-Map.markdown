@@ -1,0 +1,74 @@
+---
+layout: post
+title:  "List와 Map"
+date:  2022-02-28 18:26:24
+categories: java
+---
+
+## 리스트
+
+List는 배열과 비슷한 자료형으로 배열과는 다르게, 정해진 크기 없이 동적으로 크기가 변한다는 큰 차이가 있다.
+
+ArrayList 선언 예제:
+    import java.util.ArrayList;
+    
+    public class Main {
+    		public static void main(String[] args){
+    		ArrayList animals = new ArrayList();
+    		animals.add("Lion");
+    		animals.add("Elephant");
+    		animals.add("Tiger");
+    		}
+    }
+
+> ※ ArrayList를 사용하기 위해서는 `import java.util.ArrayList` 를  작성하여 ArrayList를 먼저 import해야 한다.
+
+List의 첫번째에 삽입:
+animals.add(0,"Frog");
+
+List에서 값 출력하기:
+    import java.util.ArrayList;
+    
+    public class Main {
+    
+    public static void main(String[] args){
+    ArrayList animals = new ArrayList();
+    animals.add("Lion");
+    animals.add("Elephant");
+    animals.add("Tiger");
+	System.out.println(animals.get(1));
+    
+	    }
+    
+    }
+
+List의 크기 출력하기:
+    System.out.println(animals.size());
+
+List에서 해당 항목 존재 여부 확인하기:
+    System.out.println(animals.contains("Tiger"));
+
+만약 리스트에 Tiger항목이 존재한다면 True를, 아니면 False를 출력한다.
+List에서 항목 제거하기:
+    System.out.println(animals.remove("Tiger"));
+
+리스트에서 Tiger 항목이 제거후 삭제한 결과를 boolean으로 출력한다.
+
+    System.out.println(animal.size(0));
+
+리스트에서 첫번째 항목을 삭제한 후 삭제한 항목을 출력한다.
+
+## 맵
+맵은 Key와 Value라는 것을 한 쌍으로 갖는 자료형이다.
+예제:
+    import java.util.HashMap; 
+      
+    public  class Sample { 
+    	    public  static  void main(String[] args) {
+    		     HashMap<String, String> map = new HashMap<>(); 
+    		     map.put("a", "ㅏ"); map.put("b", "ㅂ"); 
+    	     } 
+     }
+
+> ※ HashMap을 사용하기 위해서는 `import java.util.HashMap;`을  작성하여 HashMap을 먼저 import해야 한다.
+
