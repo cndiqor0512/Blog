@@ -1,11 +1,10 @@
 ---
 layout: post
 title:  "Springboot 구조와 코드"
-date:  2021-03-02 16:10:49
 categories: springboot
 ---
 
-board.xml
+    board.xml
 
     <?xml version="1.0" encoding="UTF-8"?>  
     <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
@@ -23,7 +22,7 @@ board.xml
 
 repository에서 publisher를 파라미터(userId)로 받아(where publisher = #{userId}), boardData를 select한다.
 
-user.xml
+    user.xml
 
     <?xml version="1.0" encoding="UTF-8"?>  
     <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
@@ -45,7 +44,7 @@ user.xml
 
 repository에서 id를 파라미터(userId)로 받아(WHERE id = #{userId}), UserData를 select한다.
 
-Board.java(도메인)
+    Board.java(도메인)
 
     import com.fasterxml.jackson.annotation.JsonFormat;  
     import lombok.Data;  
@@ -64,7 +63,7 @@ Board.java(도메인)
 
 도메인은 리포지토리와 1대1로 맵핑된다. repository에서 id, title, publisher, contents, regDate를 맵핑한다.
 
-User.java(도메인)
+    User.java(도메인)
 
     import com.fasterxml.jackson.annotation.JsonFormat;  
     import lombok.Data;  
@@ -86,10 +85,9 @@ User.java(도메인)
       @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")  
         private LocalDateTime regDate;  
     }
+같은 방법으로 User테이블과 1대1 맵핑한다.
 
-    같은 방법으로 User테이블과 1대1 맵핑한다.
-
-BoardRepository.java
+    BoardRepository.java
 
     @Mapper  
     public interface BoardRepository {  
@@ -97,7 +95,7 @@ BoardRepository.java
       
         List<Board> getUserBoardData(Long userId); //service에서 BoardData를 가져오는 용도로 사용  
     }
-UserRepository.java
+    UserRepository.java
     
     @Mapper  
     public interface UserRepository {  
@@ -106,7 +104,7 @@ UserRepository.java
       User getData(Long userId);  
     }
 
-ApiService.java
+    ApiService.java
 
     import com.example.springboot_practice.repository.BoardRepository;  
     import com.example.springboot_practice.repository.UserRepository;  
@@ -134,7 +132,7 @@ ApiService.java
       }  
     }
 
-UserBoardDataResponseDto.java(Dto:Data transfer object)
+    UserBoardDataResponseDto.java(Dto:Data transfer object)
     
     import java.util.List;
     
