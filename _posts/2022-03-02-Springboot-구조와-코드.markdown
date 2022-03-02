@@ -4,46 +4,47 @@ title:  "Springboot 구조와 코드"
 categories: springboot
 ---
 
-    board.xml
+```html
+board.xml
 
-    <?xml version="1.0" encoding="UTF-8"?>  
-    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
-    <mapper namespace="com.example.springboot_practice.repository.BoardRepository">  
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.example.springboot_practice.repository.BoardRepository">  
    
-     <select id="getUserBoardData" resultType="com.example.springboot_practice.domain.Board">  
-     SELECT  
-     id, 
-     title, 
-     regdate, 
-     publisher, 
-     contents FROM board where publisher = #{userId}  
-     </select>  
-    </mapper>
-
+<select id="getUserBoardData" resultType="com.example.springboot_practice.domain.Board">  
+SELECT  
+id, 
+title, 
+regdate, 
+publisher, 
+contents FROM board where publisher = #{userId}  
+</select>  
+</mapper>
+```
 repository에서 publisher를 파라미터(userId)로 받아(where publisher = #{userId}), boardData를 select한다.
-
+``` html
     user.xml
 
-    <?xml version="1.0" encoding="UTF-8"?>  
-    <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
-    <mapper namespace="com.example.springboot_practice.repository.UserRepository">  
-     <select id="getData" resultType="com.example.springboot_practice.domain.User">  
-      SELECT  
-     id, 
-     name, 
-     phone_number, 
-     address, 
-     birthday, 
-     age, 
-     type, is_use,
-     regdate 
-     FROM user WHERE id = #{userId}  
-     </select>  
+<?xml version="1.0" encoding="UTF-8"?>  
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">  
+<mapper namespace="com.example.springboot_practice.repository.UserRepository">  
+<select id="getData" resultType="com.example.springboot_practice.domain.User">  
+SELECT  
+id, 
+name, 
+phone_number, 
+address, 
+birthday, 
+age, 
+type, is_use,
+regdate 
+FROM user WHERE id = #{userId}  
+</select>  
      
-    </mapper>
-
+</mapper>
+```
 repository에서 id를 파라미터(userId)로 받아(WHERE id = #{userId}), UserData를 select한다.
-
+``` java
     Board.java(도메인)
 
     import com.fasterxml.jackson.annotation.JsonFormat;  
@@ -60,9 +61,9 @@ repository에서 id를 파라미터(userId)로 받아(WHERE id = #{userId}), Use
       @JsonFormat(pattern="yyyy-MM-dd")  
         private LocalDate regDate;  
     }
-
+```
 도메인은 리포지토리와 1대1로 맵핑된다. repository에서 id, title, publisher, contents, regDate를 맵핑한다.
-
+``` java
     User.java(도메인)
 
     import com.fasterxml.jackson.annotation.JsonFormat;  
@@ -85,8 +86,9 @@ repository에서 id를 파라미터(userId)로 받아(WHERE id = #{userId}), Use
       @JsonFormat(pattern="yyyy-MM-dd HH:mm:ss")  
         private LocalDateTime regDate;  
     }
+```
 같은 방법으로 User테이블과 1대1 맵핑한다.
-
+``` java
     BoardRepository.java
 
     @Mapper  
@@ -103,7 +105,8 @@ repository에서 id를 파라미터(userId)로 받아(WHERE id = #{userId}), Use
       
       User getData(Long userId);  
     }
-
+```
+``` java
     ApiService.java
 
     import com.example.springboot_practice.repository.BoardRepository;  
@@ -131,7 +134,8 @@ repository에서 id를 파라미터(userId)로 받아(WHERE id = #{userId}), Use
       return dto; //dto 출력(userId, Address, Age, Name, boardData)  
       }  
     }
-
+```
+``` java
     UserBoardDataResponseDto.java(Dto:Data transfer object)
     
     import java.util.List;
@@ -169,4 +173,6 @@ repository에서 id를 파라미터(userId)로 받아(WHERE id = #{userId}), Use
                     return apiService.getUserBoardData(userId); //apiService에서 dto를 return한다.  
       }  
     }
+```
+
 ApiService에서 getUserBoardData의 리턴이 dto였으므로, 최종적으로 apiService에서 dto를 리턴한다.
