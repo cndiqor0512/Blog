@@ -8,220 +8,236 @@ categories: java
 List는 배열과 비슷한 자료형으로 배열과는 다르게, 정해진 크기 없이 동적으로 크기가 변한다는 큰 차이가 있다.
 
 ArrayList 선언 예제:
-    import java.util.ArrayList;
-    
-    public class Main {
-    		public static void main(String[] args){
-    		ArrayList animals = new ArrayList();
-    		animals.add("Lion");
-    		animals.add("Elephant");
-    		animals.add("Tiger");
-    		}
-    }
-
+``` java
+ import java.util.ArrayList;
+ 
+ public class Main {
+ 		public static void main(String[] args){
+ 		ArrayList animals = new ArrayList();
+ 		animals.add("Lion");
+ 		animals.add("Elephant");
+ 		animals.add("Tiger");
+ 		}
+ }
+```
 > ※ ArrayList를 사용하기 위해서는 `import java.util.ArrayList` 를  작성하여 ArrayList를 먼저 import해야 한다.
 
 List의 첫번째에 삽입:
+```java
 animals.add(0,"Frog");
-
+```
 List에서 값 출력하기:
-    import java.util.ArrayList;
-    
-    public class Main {
-    
-    public static void main(String[] args){
-    ArrayList animals = new ArrayList();
-    animals.add("Lion");
-    animals.add("Elephant");
-    animals.add("Tiger");
+```java
+ import java.util.ArrayList;
+ 
+ public class Main {
+ 
+ public static void main(String[] args){
+ ArrayList animals = new ArrayList();
+ animals.add("Lion");
+ animals.add("Elephant");
+ animals.add("Tiger");
 	System.out.println(animals.get(1));
-    
-	    }
-    
-    }
-
+ 
+	 }
+ 
+ }
+```
 List의 크기 출력하기:
-    System.out.println(animals.size());
-
+```java
+ System.out.println(animals.size());
+```
 List에서 해당 항목 존재 여부 확인하기:
-    System.out.println(animals.contains("Tiger"));
-
+```java
+ System.out.println(animals.contains("Tiger"));
+```
 만약 리스트에 Tiger항목이 존재한다면 True를, 아니면 False를 출력한다.
 List에서 항목 제거하기:
-    System.out.println(animals.remove("Tiger"));
-
+```java
+ System.out.println(animals.remove("Tiger"));
+```
 리스트에서 Tiger 항목이 제거후 삭제한 결과를 boolean으로 출력한다.
-
-    System.out.println(animal.remove(0));
-
+```java
+ System.out.println(animal.remove(0));
+```
 리스트에서 첫번째 항목을 삭제한 후 삭제한 항목을 출력한다.
 
 ## 맵
 맵은 Key와 Value라는 것을 한 쌍으로 갖는 자료형이다.(Key는 중복 안됨)
 예제:   
-    import java.util.HashMap; 
-      
-    public  class Sample { 
-    	    public  static  void main(String[] args) {
-    		     HashMap<String, String> map = new HashMap<>(); 
-    		     map.put("a", "ㅏ"); map.put("b", "ㅂ"); 
-    	     } 
-     }
-
+```java
+ import java.util.HashMap; 
+   
+ public  class Sample { 
+ 	 public  static  void main(String[] args) {
+ 		  HashMap<String, String> map = new HashMap<>(); 
+ 		  map.put("a", "ㅏ"); map.put("b", "ㅂ"); 
+ 	  } 
+  }
+```
 > ※ HashMap을 사용하기 위해서는 `import java.util.HashMap;`을  작성하여 HashMap을 먼저 import해야 한다.
 
 List와 Map 예제들:
+```java
+ import java.util.ArrayList;  
+   
+ public class Example01 {  
+  public static void main(String[] args){  
+   ArrayList animals = new ArrayList();  
+   animals.add("Lion");  
+   animals.add("Elephant");  
+   animals.add("Tiger");  
+   }  
+ }
+ ``` 
 
-    import java.util.ArrayList;  
-      
-    public class Example01 {  
-        public static void main(String[] args){  
-            ArrayList animals = new ArrayList();  
-      animals.add("Lion");  
-      animals.add("Elephant");  
-      animals.add("Tiger");  
-      }  
-    }
-  
-
-
-    import java.util.ArrayList;  
-      
-    public class Example02 {  
-        public static void main(String[] args){  
-            ArrayList animals = new ArrayList();  
-      animals.add("Lion");  
-      animals.add("Elephant");  
-      animals.add("Tiger");  
-      
-      System.out.println(animals.get(1));  //Elephant 출력
+```java
+ import java.util.ArrayList;  
+   
+ public class Example02 {  
+  public static void main(String[] args){  
+   ArrayList animals = new ArrayList();  
+   animals.add("Lion");  
+   animals.add("Elephant");  
+   animals.add("Tiger");  
+   
+   System.out.println(animals.get(1));  //Elephant 출력
 	  }  
-    }
- 
+ }
+ ```
  <img  src="https://cndiqor0512.github.io/img/Example02.PNG">
 
-            public class Example03 {  
-            public static void main(String[] args){  
-                ArrayList animals = new ArrayList();  
-          animals.add("Lion");  
-          animals.add("Elephant");  
-          animals.add("Tiger");  
-          
-          System.out.println(animals.size());    //3 출력
-          }  
-    
-    }
-
+```java
+public class Example03 {  
+    public static void main(String[] args){  
+        ArrayList animals = new ArrayList();  
+        animals.add("Lion");  
+        animals.add("Elephant");  
+        animals.add("Tiger");  
+   
+        System.out.println(animals.size()); //3 출력
+   }  
+ 
+ }
+```
  <img  src="https://cndiqor0512.github.io/img/example03.PNG">
 
-    import java.util.*;  
-      
-    public class Example04 {  
-        public static void main(String[] args){  
-            Scanner sc = new Scanner(System.in);  
-      ArrayList<String> animals = new ArrayList();  
-      animals.add("Lion");  
-      animals.add("Elephant");  
-      animals.add("Tiger");  
-      animals.add("Bear");  
-      animals.add("Monkey");  
-      animals.add("Fish");  
-      
-     for(int i=0; i<animals.size();i++){  
-                String j = animals.get(i);  
-     if(j=="Lion"){  
-                    System.out.println("Yes");  
-      }else {System.out.println("No");}  
-            }  
-        }  
-    }
-
+```java
+ import java.util.*;  
+   
+ public class Example04 {  
+     public static void main(String[] args){  
+      Scanner sc = new Scanner(System.in);  
+   ArrayList<String> animals = new ArrayList();  
+   animals.add("Lion");  
+   animals.add("Elephant");  
+   animals.add("Tiger");  
+   animals.add("Bear");  
+   animals.add("Monkey");  
+   animals.add("Fish");  
+   
+  for(int i=0; i<animals.size();i++){  
+          String j = animals.get(i);  
+  if(j=="Lion"){  
+           System.out.println("Yes");  
+   }else {System.out.println("No");}  
+      }  
+     }  
+ }
+```
 <img  src="https://cndiqor0512.github.io/img/example04.PNG">
 
-    import java.util.ArrayList;  
-      
-    public class Example05 {  
-        public static void main(String[] args){  
-            ArrayList animals = new ArrayList();  
-      animals.add("Lion");  
-      animals.add("Elephant");  
-      animals.add("Tiger");  
-      animals.add("Bear");  
-      animals.add("Monkey");  
-      animals.add("Fish");  
-      
-      System.out.println(animals.remove("Lion"));  
-      System.out.println(animals.remove(0));  
-      
-      }  
-    }
-
+```java
+ import java.util.ArrayList;  
+   
+ public class Example05 {  
+     public static void main(String[] args){  
+      ArrayList animals = new ArrayList();  
+   animals.add("Lion");  
+   animals.add("Elephant");  
+   animals.add("Tiger");  
+   animals.add("Bear");  
+   animals.add("Monkey");  
+   animals.add("Fish");  
+   
+   System.out.println(animals.remove("Lion"));  
+   System.out.println(animals.remove(0));  
+   
+   }  
+ }
+```
 
 <img  src="https://cndiqor0512.github.io/img/example05.PNG">
 
 Map 예제:
-    
-    
-    import java.util.HashMap;  
-      
-    public class Example01 {  
-        public static void main(String[] args){  
-            HashMap<String, String> carMap = new HashMap<>();  
-      carMap.put("아반떼","1500만원");  
-      carMap.put("모닝","1000만원");  
-      carMap.put("그랜저","2000만원");  
-      }  
-    }
+ 
+ ```java
+ import java.util.HashMap;  
+   
+ public class Example01 {  
+     public static void main(String[] args){  
+      HashMap<String, String> carMap = new HashMap<>();  
+   carMap.put("아반떼","1500만원");  
+   carMap.put("모닝","1000만원");  
+   carMap.put("그랜저","2000만원");  
+   }  
+ }
+```
 
-    import java.util.HashMap;  
-      
-    public class Example02 {  
-        public static void main(String[] args){  
-            HashMap<String, String> animalsMap = new HashMap<>();  
-      animalsMap.put("Tiger","육식");  
-      animalsMap.put("Lion","육식");  
-      animalsMap.put("Elephant","초식");  
-      animalsMap.put("Frog","잡식");  
-      animalsMap.put("Turtle","잡식");  
-      
-      System.out.println(animalsMap.get("Tiger"));  
-      System.out.println(animalsMap.get("Lion"));  
-      }  
-    }
-
+```java
+ import java.util.HashMap;  
+   
+ public class Example02 {  
+     public static void main(String[] args){  
+      HashMap<String, String> animalsMap = new HashMap<>();  
+   animalsMap.put("Tiger","육식");  
+   animalsMap.put("Lion","육식");  
+   animalsMap.put("Elephant","초식");  
+   animalsMap.put("Frog","잡식");  
+   animalsMap.put("Turtle","잡식");  
+   
+   System.out.println(animalsMap.get("Tiger"));  
+   System.out.println(animalsMap.get("Lion"));  
+   }  
+ }
+```
 <img  src="https://cndiqor0512.github.io/img/example02_map.PNG">
 
-    import java.util.HashMap;  
-      
-    public class Example03 {  
-        public static void main(String[] args){  
-            HashMap<String, String> gradeMap = new HashMap<>();  
-      gradeMap.put("김철수","A+");  
-      gradeMap.put("홍길동","B-");  
-      gradeMap.put("박철수","C+");  
-      gradeMap.put("유재석","A");  
-      
-      System.out.println(gradeMap.size());  
-      }  
-    }
+```java
+
+ import java.util.HashMap;  
+   
+ public class Example03 {  
+     public static void main(String[] args){  
+      HashMap<String, String> gradeMap = new HashMap<>();  
+   gradeMap.put("김철수","A+");  
+   gradeMap.put("홍길동","B-");  
+   gradeMap.put("박철수","C+");  
+   gradeMap.put("유재석","A");  
+   
+   System.out.println(gradeMap.size());  
+   }  
+ }
+```
 
    <img  src="https://cndiqor0512.github.io/img/example03_map.PNG">
 
-    import java.util.HashMap;  
-      
-    public class Example04 {  
-        public static void main(String[] args){  
-            HashMap<String, String> sportsMap = new HashMap<>();  
-      sportsMap.put("baseball","야구");  
-      sportsMap.put("soccer","축구");  
-      sportsMap.put("basketball","농구");  
-      sportsMap.put("golf","골프");  
-      sportsMap.put("swimming","수영");  
-      
-      sportsMap.remove("baseball");  
-      System.out.println(sportsMap.size());  
-      
-      }  
-    }
-
+```java
+ import java.util.HashMap;  
+   
+ public class Example04 {  
+     public static void main(String[] args){  
+      HashMap<String, String> sportsMap = new HashMap<>();  
+   sportsMap.put("baseball","야구");  
+   sportsMap.put("soccer","축구");  
+   sportsMap.put("basketball","농구");  
+   sportsMap.put("golf","골프");  
+   sportsMap.put("swimming","수영");  
+   
+   sportsMap.remove("baseball");  
+   System.out.println(sportsMap.size());  
+   
+   }  
+ }
+```
 <img  src="https://cndiqor0512.github.io/img/example04_map.PNG">
