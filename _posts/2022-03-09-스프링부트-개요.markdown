@@ -1,0 +1,19 @@
+---
+layout: post
+title:  "스프링부트 개요"
+categories: springboot
+--- 
+
+스프링 부트란? 자바 기반의 웹 애플리케이션을 개발할 수 있는 프레임워크.
+
+스프링 부트의 구조:
+
+<img src="https://cndiqor0512.github.io/img/Springboot각역할.png">
+
+1. Controller에서는 사용자의 입력을 받는다.
+2. 받은 요청을 Service로 보내어, Service에서는 비즈니스 로직을 수행한다.
+3. Service에서 로직을 수행하며 사용되는 DB는 Repository(Mysql table과 맵핑)에서 처리된다.
+4. 처리된 로직을 다시 Controller로 보낸다.
+5. Controller에서 사용자에게 출력한다.
+
+스프링 부트의 특징:제어의 역전(IOC), 의존성주입(DI)
