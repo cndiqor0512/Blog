@@ -4,7 +4,7 @@ title:  "스프링부트 개요"
 categories: springboot
 --- 
 
-스프링 부트란? 자바 기반의 웹 애플리케이션을 개발할 수 있는 프레임워크.
+### 스프링 부트란? 자바 기반의 웹 애플리케이션을 개발할 수 있는 프레임워크.
 
 스프링 부트의 구조:
 
@@ -17,3 +17,44 @@ categories: springboot
 5. Controller에서 사용자에게 출력한다.
 
 스프링 부트의 특징:제어의 역전(IOC), 의존성주입(DI)
+DI, 의존성 주입과 IoC, 제어의 역전이란
+의존성 주입: 하나의 객체가 다른 객체의 의존성을 제공하는 것(두 클래스 간의 관계).
+다음은 의존성 주입을 한 경우와 하지 않은 경우이다.
+의존성 주입 無
+```java
+public class Lion{
+.
+.
+.
+}
+```
+```java
+public class Animal{
+    private Lion lion;
+    public Animal(){
+        lion = new Lion();
+    }
+}
+```
+의존성 주입 有
+```java
+@Component //스프링 컨테이너에 등록
+public class Lion{
+
+}
+```
+```java
+public class Animal{
+    @Autowired //스프링 컨테이너에서 등록된 Component를 주입
+    private Lion lion
+}
+```
+
+제어의 역전: 스프링 컨테이너가 사용자 대신 객체들을 제어해주는 행위.
+기존에는 개발자가 객체를 다 제어해야 했지만, xml파일, 어노테이션 등으로 객체의 제어를 대신 해준다. 이는 개발자의 개발에 있어서 편의성을 제공해준다. 
+
+
+### 스프링 부트는 스프링(Spring)을 개발하는 
+
+스프링 부트는 스프링에서의 많은 요소들을 자동화 또는 개발자가 이용하기 편하게 하였다. 
+또한 Tom Cat이 기본적으로 내장되어 있어, Tom Cat을 다운로드하고 버전을 업데이트 하는 수고로움을 덜어주기도 한다.
