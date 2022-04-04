@@ -1,0 +1,34 @@
+---
+layout: post
+title:  "예외처리란"
+categories: programming, java
+--- 
+예외처리(Exception Handling)는 코드 실행에서 오류를 그대로 실행하지 않고, 오류에 대해 어떻게 행동할 것인가 제시하는 것이다.
+예외의 종류는 다음과 같다:
+NullPointerException
+null을 참조할 때의 예외
+ClassCastException
+변환할 수 없는 타입으로 객체를 변환할 때 생기는 예외
+OutOfMemoryException
+메모리가 부족한 경우 생기는 예외
+IOException
+입출력 동작중 오류가 발생할 때, 자바에서는 기본으로 반드시 예외처리 하게 설정되어 있다.
+NumberFormatException
+문자열의 숫자와 일치하지 않는 타입으로 변환할 때 생기는 예외
+IllegalArgumentException
+잘못된 인자를 전달할 때 생기는 예외
+ArrayIndexOutOfBoundsException
+배열의 범위를 넘기면 생기는 예외
+NoSuchMethodError
+존재하지 않는 메서드를 호출할 때 생기는 예외
+이외에도 다른 예외가 있다.
+
+예외처리의 예문: try-catch
+기본 골자:
+```java
+try{
+    //예외가 발생할 수 있는 부분
+}catch (Exception e1){
+    //예외가 발생했을 때 실행시킬 부분
+}
+```
