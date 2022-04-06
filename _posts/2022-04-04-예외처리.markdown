@@ -63,7 +63,7 @@ public static void main(String[] args){
 위와 같은 방법이다.
 
 결과:
-<img src="https://cndiqor0512.github.io/img/예외처리2.png">
+<img src="https://cndiqor0512.github.io/img/예외처리2.PNG">
 
 Catch 블럭은 여러개를 쌓을 수 있다.
 ```java
