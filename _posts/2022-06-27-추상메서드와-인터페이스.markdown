@@ -1,0 +1,194 @@
+---
+layout: post
+title:  "추상메서드와 인터페이스"
+categories: programming, java
+--- 
+
+추상의 사전적 의미는 '사물이나 표상(表象)을 어떤 성질·공통성·본질에 착안하여 그것을 추출(抽出)하여 파악하는 것'이다.  
+자바에서의 추상 클래스도 비슷한 의미로, 클래스들의 어떠한 공통 부분들을 추상 메서드라는 형태로 추출하여 그 기능을 추상적으로만 구현하는 것을 추상 클래스라 한다. 추상 클래스와 메서드의 선언은 리턴 타입과 class 앞에 abstract를 붙이면 된다.
+
+추상 메서드를 클래스 내에서 선언하면 그 기능을 추상 클래스 내에서 구현하지 않아도 되는데, 이 경우에는 자식 클래스에서 기능을 구현해주어야한다.
+추상 메서드를 재구현 할 때는 어노테이션 Override를 사용하면 된다. 오버라이드 하여 재구현된 메서드를 실행 클래스에서 사용하면 기능이 클래스마다 별도로 작동하게 된다.
+
+추상 메서드를 사용하면 공통되는 메서드가 추상 클래스 내에 있기 때문에 코드 작성과 유지보수가 더욱 간편해진다는 이점이 있다.
+
+예를 들어보자, 부모 클래스 Animal에 추상 메서드 feed와 메서드 wash가 있다고 치자.
+Animal은 동물을 키우는 방법에 대한 클래스고, feed는 추상 클래스에서 구현이 되지 않은 밥을 주는 메서드이고 wash는 추상 클래스 내에서 선언된 메서드이다.
+
+이것을 자식 클래스(Lion, Dog, Cat etc.)에서 상속을 받으면 추상 메서드는 동물 별 줘야할 밥을 자식 클래스에서 구현할 것이고, wash는 공통적으로 선언된 것을 그대로 사용하면 될 것이다.
+
+~~~
+부모 클래스:
+씻기기(선언+기능)
+밥 먹이기(선언)
+~~~
+
+~~~
+자식 클래스:
+밥 먹이기(재구현)
+~~~
+
+~~~
+실행 클래스:
+씻기기
+객체별 밥 먹이기
+~~~
+위 예시를 추상 클래스로 구현을 하면 다음과 같다.
+
+~~~java
+abstract class Animal{
+    void wash(){
+        System.out.println("wash the animal");
+    // 씻기기
+    }
+
+    abstract void feed();
+    // 밥 먹이기
+}
+~~~
+자식 클래스 1
+~~~java
+public class Lion extends Animal {
+    @Override
+    void feed(){
+        System.out.println("feed meat");
+    }
+} 
+~~~
+자식 클래스 2
+~~~java
+public class Elephant extends Animal {
+    @Override
+    void feed(){
+        System.out.println("feed fruits");
+    }
+} 
+~~~
+자식 클래스 3
+~~~java
+public class Monkey extends Animal {
+    @Override
+    void feed(){
+        System.out.println("feed banana");
+    }
+} 
+~~~
+
+실행
+~~~java
+public class Main{
+    public static void main(String[] args){
+        Animal lion = new Lion();
+        Animal elephant = new Elephant();
+        Animal monkey = new Monkey();
+
+        lion.feed();
+        lion.wash();
+
+        elephant.feed();
+        elephant.wash();
+
+        monkey.feed();
+        monkey.wash();
+    }
+}
+~~~
+
+결과:
+~~~
+feed meat
+wash the animal
+feed fruits
+wash the animal
+feed banana
+wash the animal
+~~~
+
+사자와 코끼리 그리고 원숭이가 각각 먹어야 할 밥과 씻는다는 메시지가 출력되었다.
+이처럼 추상 클래스와 메서드를 활용하여 각 클래스에서 공통되는 메서드를 선언해 놓는다면 
+자식 클래스에서는 이 추상 메서드를 오버라이드해 재구현할 수 있다.
+
+
+인터페이스 또한 추상메서드와 비슷하게 공통적인 작업을 인터페이스에서 구현해놓음으로써 코드 작성을 쉽게 할 수 있게 도와준다.
+
+인터페이스 내에는 추상 메서드(abstract), 디폴트 메서드(default) 그리고 정적 메서드(static)을 구현할 수 있는데, 
+추상 메서드와 디폴트 메서드는 인터페이스가 구현된 클래스에서 오버라이딩을 통해 재구현이 가능하고 정적 메서드는 인터페이스 내에 구현된
+그대로만이 사용 가능하다.
+
+위와 같은 예시로 코드를 구현해보자.
+
+인터페이스
+~~~java
+public interface Animal {
+    String getFood();
+    static void wash(){
+        System.out.println("wash the animal");
+    }
+}
+~~~ 
+
+Lion
+~~~java
+public class Lion implements Animal{
+    @Override
+    public String getFood(){
+        return("Meat");
+    }
+}
+~~~
+Lion
+~~~java
+public class Lion implements Animal{
+    @Override
+    public String getFood(){
+        return("Meat");
+    }
+}
+~~~
+Elephant
+~~~java
+public class Elephant implements Animal{
+    @Override
+    public String getFood() {
+        return("Fruits");
+    }
+}
+~~~
+Monkey
+~~~java
+public class Monkey implements Animal{
+    @Override
+    public String getFood(){
+        return("Banana");
+    }
+}
+~~~
+실행 클래스
+~~~java
+public class Main {
+    void feed(Animal animal){
+        System.out.println("Feed" + animal.getFood());
+        Animal.wash();
+    }
+    public static void main(String[] args){
+        Animal lion = new Lion();
+        Animal elephant = new Elephant();
+        Animal monkey = new Monkey();
+        Main main = new Main();
+        main.feed(lion);
+        main.feed(elephant);
+        main.feed(monkey);
+    }
+}
+
+~~~
+
+실행 결과:
+~~~
+Feed Meat
+wash the animal
+Feed Fruits
+wash the animal
+Feed Banana
+wash the animal
+~~~
